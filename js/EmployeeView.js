@@ -1,18 +1,5 @@
 var EmployeeView = function(employee) {
 
-    this.initialize = function() {
-        this.el = $('<div/>');
-        this.el.on('click', '.add-location-btn', this.addLocation);
-        // Comment by Steve
-    };
-
-    this.initialize();
-
-    this.render = function() {
-        this.el.html(EmployeeView.template(employee));
-        return this;
-    };
-
     this.addLocation = function(event) {
         event.preventDefault();
         console.log('addLocation');
@@ -24,6 +11,19 @@ var EmployeeView = function(employee) {
                 alert('Error getting location');
             });
         return false;
+    };
+
+    this.initialize = function() {
+        this.el = $('<div/>');
+        this.el.on('click', '.add-location-btn', this.addLocation);
+        // Comment by Steve
+    };
+
+    this.initialize();
+
+    this.render = function() {
+        this.el.html(EmployeeView.template(employee));
+        return this;
     };
 
 }
